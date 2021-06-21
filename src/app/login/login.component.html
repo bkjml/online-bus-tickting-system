@@ -1,0 +1,27 @@
+<div class="col-md-8 offset-2 mt-6 card border border-light p-5" style="background:rgb(247, 243, 243)">
+    <div class="card-body">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <h3 class="h3 text-center">Login Form</h3>
+            <div class="form-group">
+                <label for="userId" class="text-success">User Id</label>
+                <input type="number" #userId="ngModel" ngModel name="userId" id="userId" class="form-control"
+                    placeholder="Enter User Id">
+                <div *ngIf="userId.touched && userId.invalid">
+                    <p class="alert alert-danger"> *This field is required</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="text-success">User Password</label>
+                <input type="password" #userPassword="ngModel" ngModel name="userPassword" id="userPassword"
+                    class="form-control" required placeholder="Enter User Password">
+                <div *ngIf="userPassword.touched && userPassword.invalid">
+                    <p class="alert alert-danger"> This field is required</p>
+                </div>
+            </div>
+            <button mdbBtn color="blue" style="width: 300px;" block="true" class="my-4" type="submit" [disabled]="loginForm.invalid">Login</button>
+            <label for="remember_me" class="text-success">Remember me</label>
+            <input type="checkbox" mdb-checkbox #remember_me="ngModel" ngModel name="remember_me" id="remember_me">
+        </form>
+    </div>
+</div>

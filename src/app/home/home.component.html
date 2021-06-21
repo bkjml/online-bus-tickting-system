@@ -1,0 +1,60 @@
+<div class=" card">
+  <div class="card-body" style="text-align: center">
+      <h3>Online Bus Ticket Booking</h3>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-8 offset-md-2 col-sm-12">
+      <br>
+      <div class="card" style="background:snow">
+          <div class="card-body">
+              <h3>Search Bus</h3>
+              <form #checkAvailForm="ngForm" (ngSubmit)="checkAvail(checkAvailForm)">
+                  <fieldset>
+                      
+                      <label for="startingPoint" class="text-success"> <b>FROM: </b></label>
+                      <select #startingPoint="ngModel" ngModel name="startingPoint"  id="startingPoint" class="form-control" required >
+                          <option [ngValue]="null" disabled>Enter starting Point</option>
+                          <option *ngFor="let country of travels" >{{country}}</option>
+                          
+                      </select>
+                      <label for="endingPoint" class="text-success"> <b>TO: </b></label>
+                      <select #endingPoint="ngModel" ngModel name="endingPoint" id="endingPoint"
+                          class="form-control" required >
+                          <option [ngValue]="null" disabled>Enter Ending Point</option>
+                          <option *ngFor="let country of travels">{{country}}</option>
+                      </select>
+                      <label for="availableDate" class="text-success"> <b>DATE: </b></label>
+                      <input type="date" #availableDate="ngModel" ngModel name="availableDate" id="availableDate"
+                          class="form-control" required>
+                      <br>
+                      <button class="btn btn-primary" [disabled]="checkAvailForm.invalid">Search</button>
+                  </fieldset>
+              </form>
+          </div>
+      </div>
+  </div>
+
+  <div class="col-md-8 offset-md-1 card card-body mt-1" *ngIf="check">
+      <table class="table table-bordered table-hover table-striped">
+          <thead class="bg-info">
+              <td>Available Date</td>
+              <td>Available Seat</td>
+              <td>Bus Id</td>
+          </thead>
+          <tbody>
+              <tr *ngFor='let avail of avails'>
+                  <td>{{avail.availDate}}</td>
+                  <td>{{avail.availSeat}}</td>
+                  <td>{{avail.busId}}</td>
+              </tr>
+          </tbody>
+      </table>
+<h1> </h1>
+</div>
+
+
+  

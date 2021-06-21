@@ -1,0 +1,42 @@
+<div class="col-md-8 offset-md-2 card card-body mt-5" style="background:rgb(247, 243, 243)">
+    <form #bookTicketForm="ngForm" (ngSubmit)="bookTicket(bookTicketForm)">
+        <div class="card-body" style="text-align: center">
+            <h3>Book Ticket</h3>
+        </div>
+        <h6 class="text-danger float-right">*Required Fields</h6>
+        <div class="form-group">
+            <label for="busId" class="text-success">Enter bus ID
+            </label>
+            <input type="text" #busId="ngModel" ngModel name="busId" id="busId" class="form-control"
+                required placeholder="Enter  Bus Id">
+            <div *ngIf="busId.touched && busId.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="numOfSeats" class="text-success">No of Seats to book
+            </label>
+            <input type="number" #numOfSeats="ngModel" ngModel name="numOfSeats" id="numOfSeats" class="form-control"
+                required placeholder="Enter number of seats">
+            <div *ngIf="numOfSeats.touched && numOfSeats.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+            <label for="tickeId" class="text-success">Enter a unique number to your Id
+            </label>
+            <input type="number" #tickeId="ngModel" ngModel name="tickeId" id="tickeId" class="form-control"
+                required placeholder="Enter a unique number to your Id">
+            <div *ngIf="tickeId.touched && tickeId.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+            <label for="userId" class="text-success">Enter your user Id
+            </label>
+            <input type="number" #userId="ngModel" ngModel name="userId" id="userId" class="form-control"
+                required placeholder="Enter your Id">
+            <div *ngIf="userId.touched && userId.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+            
+        </div>
+        <button type="submit" block="true" class="btn btn-primary float-center my-4" [disabled]="bookTicketForm.invalid">Confirm</button>
+    </form>
+</div>

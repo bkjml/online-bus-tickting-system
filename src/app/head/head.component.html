@@ -1,0 +1,87 @@
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      
+      <div class="collapse navbar-collapse" id="navbarExample01" >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" routerLink="/"><p style="color: lightcyan;">Home</p></a>
+          </li>
+          <!-- ADMIN PERFORMANCE -->
+          <li class="nav-item" *ngIf="isAdminLogin">
+            <a class="nav-link" routerLink="addBus"><p style="color: lightcyan;">Add Bus</p></a>
+          </li>
+        
+          <li class="nav-item" *ngIf="isAdminLogin">
+              <a class="nav-link" routerLink="setAvailability"><p style="color: lightcyan;">Set Avaliability</p></a>
+          </li>
+          <li class="nav-item " *ngIf="isAdminLogin">
+              <a class="nav-link" routerLink="deleteBus"><p style="color: lightcyan;">Delete Bus</p></a>
+          </li>
+          <li class="nav-item" *ngIf="isAdminLogin">
+            <a class="nav-link" routerLink="removeUser"><p style="color: lightcyan;">Remove User</p></a>
+          </li>
+          <li class="nav-item" *ngIf="isAdminLogin">
+            <a class="nav-link" routerLink="getAllTickets"><p style="color: lightcyan;">Get All Tickets</p></a>
+          </li>
+          <li class="nav-item" *ngIf="isAdminLogin">
+            <a class="nav-link" routerLink="showAllBuses"><p style="color: lightcyan;">Show All Buses</p></a>
+          </li>
+
+
+           <!-- CUSTOMER PERFORMANCE -->
+      
+          <li class="nav-item" *ngIf="isCustomerLogin">
+            <a class="nav-link" routerLink="bookTicket"><p style="color: lightcyan;">Book Ticket</p></a>
+          </li>
+          <li class="nav-item" *ngIf="isCustomerLogin">
+            <a class="nav-link" routerLink="viewTicket"><p style="color: lightcyan;">View Ticket </p></a>
+          </li>
+          <li class="nav-item" *ngIf="isCustomerLogin">
+            <a class="nav-link" routerLink="cancelTicket"><p style="color: lightcyan;">Cancel Ticket</p></a>
+          </li>
+
+        
+          <li class="nav-item">
+            <a class="nav-link" routerLink="about"><p style="color: lightcyan;">About</p></a>
+          </li>
+        </ul>
+        
+
+          <div class="d-flex align-items-center">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item active" *ngIf="!isAdminLogin && !isCustomerLogin">
+                <a class="nav-link" routerLink="register"><p style="color: lightcyan;">Register </p></a>
+              </li>
+              <li class="nav-item active" *ngIf="!isAdminLogin && !isCustomerLogin">
+                <a class="nav-link" routerLink="login"><p style="color: lightcyan;">Login </p></a>
+              </li>
+              <li class="nav-item active" *ngIf="isAdminLogin || isCustomerLogin">
+                <button type="button" class="btn btn-outline-light"  (click)="logout()">Logout</button>
+              </li>
+              
+            </ul>
+          </div>
+        
+      </div>
+    </div>
+    
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Background image -->
+  <div
+    class="p-5 text-center bg-image"
+    style="
+      background-image: url('../../assets/images/1.jpg');
+      height: 200px;
+      margin-top: 58px;
+    "
+  >
+    
+    
+  </div>
+
+  <!-- Background image -->
+</header>
